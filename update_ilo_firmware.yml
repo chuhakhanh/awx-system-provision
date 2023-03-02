@@ -1,0 +1,12 @@
+---
+- name: Use specific var file
+  include_vars:
+    file: "group_vars/{{lab_name}}/vmw_vms.yml"
+
+- name: Create resouce pool for student if not existence 
+  update_firmware:
+    firmware_version: "{{ firmware }}"
+    file: "{{ vcenter_username }}"
+
+  loop: "{{ vms }}" 
+  delegate_to: localhost  

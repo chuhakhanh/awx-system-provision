@@ -1,0 +1,25 @@
+sys_web:
+  - name: web-1
+    profile: web
+    ip_ilo: 10.1.17.101
+    hostname: web-1
+    ip_os: 192.168.100.1
+
+  - name: web-2
+    profile: web
+    ip_ilo: 10.1.17.102
+    hostname: web-2
+    ip_os: 192.168.100.2
+
+sys_app:
+  - name: app-1
+    profile: app
+    ip_ilo: 10.1.17.103
+    hostname: app-1
+    ip_os: 192.168.101.1
+
+  - name: app-2
+    profile: app
+    ip_ilo: 10.1.17.104
+    hostname: app-2
+    ip_os: 192.168.101.2
