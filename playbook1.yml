@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  vars_files: vars/sys_env.yml
+  gather_facts: no
+  become: true
+  serial: 4
+  tasks:     
+    - name: Update firmware
+      include: update_ilo_firmware.yml
+    
+    - name: Set bootorder
+      include: update_ilo_firmware.yml
+    
+    - name: Create RAID device
+      include: update_ilo_firmware.yml
+
+   - name: Get MAC
+     uri:
+       url: http://www.google.com
+       return_content: yes
+     register: server_eno1_mac
+
+   - set_fact:  
+       this_local: "{{ this.url }}"   
+
+   - set_stats:
+       data:
+         test_stat: "{{ this_local }}"
+
+   - name: debug set fact
+     debug:
+       msg: "{{ this.url}}"
+
+    - name: Update MAC into database
+      include: update_mac_to_database.yml
